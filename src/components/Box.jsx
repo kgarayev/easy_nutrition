@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Image from "./Image";
 
 class Box extends Component {
   render() {
@@ -8,15 +9,18 @@ class Box extends Component {
     return (
       <>
         <h3>{item.name}</h3>
+
+        <Image item={item} />
+
         {Object.keys(dictionary).map((key) => {
           return (
-            <p>
+            <div key={Math.floor(Math.random() * 10000)}>
               {dictionary[key].primary +
                 ": " +
                 item[key] +
                 " " +
                 dictionary[key].unit}
-            </p>
+            </div>
           );
         })}
       </>

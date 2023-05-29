@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+.imageBox {
+  width: 5rem;
+}
+
+.imageBox img {
+  width: 5rem;
+}
