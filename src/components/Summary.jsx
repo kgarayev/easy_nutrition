@@ -21,13 +21,14 @@ class Summary extends Component {
     const totals = this.summAll(this.props.nutritionData);
     return (
       <>
-        <h2>Totals</h2>
+        <h2>totals</h2>
         {Object.keys(totals).map((key) => {
           return (
             <p key={key}>
               {totals[key].primary +
                 ": " +
                 Math.round(totals[key].sum) +
+                " " +
                 totals[key].unit}
             </p>
           );

@@ -3,12 +3,22 @@ import { connect } from "react-redux";
 
 class Box extends Component {
   render() {
-    const { item } = this.props;
+    const { item, dictionary } = this.props;
 
     return (
       <>
         <h3>{item.name}</h3>
-        <p>{item.calories}</p>
+        {Object.keys(dictionary).map((key) => {
+          return (
+            <p>
+              {dictionary[key].primary +
+                ": " +
+                item[key] +
+                " " +
+                dictionary[key].unit}
+            </p>
+          );
+        })}
       </>
     );
   }
