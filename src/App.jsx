@@ -4,10 +4,11 @@ import "./App.css";
 import { connect } from "react-redux";
 import { NEW_API_DATA } from "./store/types";
 import { API_KEY } from "./store/config";
+import Searchbox from "./components/Searchbox";
 
 class App extends Component {
   render() {
-    return <h1>Hi</h1>;
+    return <Searchbox />;
   }
 }
 
