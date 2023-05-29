@@ -5,6 +5,7 @@ import { NEW_API_DATA, USER_INPUT, SET_FILTER, SET_SORT } from "./types";
 export function reducer(state = initialState, action) {
   switch (action.type) {
     case NEW_API_DATA:
+      console.log(action.payload);
       return { ...state, nutritionData: action.payload };
 
     case USER_INPUT:
