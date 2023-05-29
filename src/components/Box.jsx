@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class Box extends Component {
   render() {
@@ -6,11 +7,17 @@ class Box extends Component {
 
     return (
       <>
-        <p>{item.name}</p>
+        <h3>{item.name}</h3>
         <p>{item.calories}</p>
       </>
     );
   }
 }
 
-export default Box;
+function mapStateToProps(state) {
+  return {
+    dictionary: state.dictionary,
+  };
+}
+
+export default connect(mapStateToProps)(Box);

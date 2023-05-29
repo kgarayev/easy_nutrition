@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
-import { API_KEY } from "../store/config";
 import Box from "./Box";
+import Summary from "./Summary";
 
 class Content extends Component {
   componentDidUpdate(prevProps) {
@@ -18,6 +17,8 @@ class Content extends Component {
     if (nutritionData) {
       return (
         <>
+          <Summary />
+
           {nutritionData.map((item) => {
             return <Box item={item} key={item.calories} />;
           })}
