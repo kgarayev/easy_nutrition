@@ -33,6 +33,14 @@ export const nutritionSlice = createSlice({
     saveInput: (state, action) => {
       state.userInput = action.payload;
     },
+
+    setSort: (state, action) => {
+      state.sortOption = action.payload;
+    },
+
+    setFilter: (state, action) => {
+      state.filterOption = action.payload;
+    },
   },
 });
 
@@ -46,5 +54,7 @@ export const {
 export const selectNutritionData = (state) => state.nutrition.nutritionData;
 export const selectUserInput = (state) => state.nutrition.userInput;
 export const selectDictionary = (state) => state.nutrition.dictionary;
+export const selectSortOption = (state) => state.nutrition.sortOption;
+export const selectFilterOption = (state) => state.nutrition.filterOption;
 
 export default nutritionSlice.reducer;

@@ -2,18 +2,51 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Box from "./Box";
 import Summary from "./Summary";
-import { selectNutritionData, selectUserInput } from "../store/nutritionSlice";
+import Sort from "./Sort";
+import Filter from "./Filter";
+import {
+  selectNutritionData,
+  selectUserInput,
+  selectFilterOption,
+  selectSortOption,
+} from "../store/nutritionSlice";
 
 const Content = () => {
   const nutritionData = useSelector(selectNutritionData);
   const userInput = useSelector(selectUserInput);
+  const filterOption = useSelector(selectFilterOption);
+  const sortOption = useSelector(selectSortOption);
+
+  // copy nutrition data and filter and/or sort it if necessary
+  let list = [...nutritionData];
+
+  // filter it
+  if (filterOption) {
+    list = list.filter((item) => {
+      return item.name.toLowerCase().includes(filterOption);
+    });
+  }
+
+  //  sort it
+  if (sortOption === "asc") {
+    list.sort((a, b) => {
+      return a.calories - b.calories;
+    });
+  } else if (sortOption === "desc") {
+    list.sort((a, b) => {
+      return b.calories - a.calories;
+    });
+  }
 
   if (nutritionData && nutritionData.length !== 0) {
     return (
       <>
         <Summary />
 
-        {nutritionData.map((item) => {
+        <Sort />
+        <Filter />
+
+        {list.map((item) => {
           return <Box item={item} key={item.calories} />;
         })}
       </>
