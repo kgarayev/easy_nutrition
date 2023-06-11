@@ -27,6 +27,10 @@ const Summary = () => {
 
   const totals = summAll(nutritionData);
 
+  if (totals.calories.sum === 0) {
+    return;
+  }
+
   return (
     <>
       <h2>totals</h2>

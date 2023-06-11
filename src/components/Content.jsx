@@ -8,7 +8,7 @@ const Content = () => {
   const nutritionData = useSelector(selectNutritionData);
   const userInput = useSelector(selectUserInput);
 
-  if (nutritionData.length !== 0) {
+  if (nutritionData && nutritionData.length !== 0) {
     return (
       <>
         <Summary />
@@ -18,19 +18,19 @@ const Content = () => {
         })}
       </>
     );
-  } else if (nutritionData) {
+  } else if (nutritionData && nutritionData.length === 0) {
     return (
       <>
         <p>Please make a valid entry</p>
       </>
     );
+  } else {
+    return (
+      <>
+        <p>Loading...</p>
+      </>
+    );
   }
-
-  return (
-    <>
-      <p>Loading...</p>
-    </>
-  );
 };
 
 export default Content;
