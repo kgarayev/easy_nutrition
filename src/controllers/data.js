@@ -1,27 +1,27 @@
-import { store } from "../main";
+import { store } from "../store/store";
 import axios from "axios";
-import { NEW_API_DATA } from "../store/types";
 import { API_KEY } from "../store/config";
 import { backupData } from "../store/backup";
+import { newApiData } from "../store/nutritionSlice";
 
 // function to get data from the api
-export const getData = async (userInput) => {
+export const getData = async (input) => {
   // only a backup data
-  store.dispatch({ type: NEW_API_DATA, payload: backupData });
+  // store.dispatch(saveInput(backupData));
 
-  //   try {
-  //     const { data } = await axios.get(
-  //       `https://api.api-ninjas.com/v1/nutrition?query=${userInput}`,
-  //       {
-  //         headers: {
-  //           "X-Api-Key": API_KEY,
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
+  try {
+    const { data } = await axios.get(
+      `https://api.api-ninjas.com/v1/nutrition?query=${input}`,
+      {
+        headers: {
+          "X-Api-Key": API_KEY,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-  //     store.dispatch({ type: NEW_API_DATA, payload: data });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
+    store.dispatch(newApiData(data));
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { USER_INPUT } from "../store/types";
 import { getData } from "../controllers/data";
+import { saveInput, selectUserInput } from "../store/nutritionSlice";
 
 const Searchbox = () => {
   const dispatch = useDispatch();
-  const userInput = useSelector((store) => store.userInput);
+  const userInput = useSelector(selectUserInput);
 
   // function to record and dispatch the user input into a store
   const onSubmit = async (e) => {
     e.preventDefault();
-    const userInput = e.target.elements.searchInput.value;
-    dispatch({ type: USER_INPUT, payload: userInput });
+    const input = e.target.elements.searchInput.value;
+    dispatch(saveInput(input));
   };
 
   //   trigger the update of the component
