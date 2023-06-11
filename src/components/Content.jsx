@@ -1,44 +1,28 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import Box from "./Box";
 import Summary from "./Summary";
 
-class Content extends Component {
-  componentDidUpdate(prevProps) {
-    if (prevProps.nutritionData !== this.props.nutritionData) {
-      this.forceUpdate();
-    }
-  }
+const Content = () => {
+  const nutritionData = useSelector((state) => state.nutritionData);
 
-  render() {
-    const { nutritionData } = this.props;
-    // console.log(nutritionData);
-
-    if (nutritionData) {
-      return (
-        <>
-          <Summary />
-
-          {nutritionData.map((item) => {
-            return <Box item={item} key={item.calories} />;
-          })}
-        </>
-      );
-    }
-
+  if (nutritionData) {
     return (
       <>
-        <p>Loading</p>
+        <Summary />
+
+        {nutritionData.map((item) => {
+          return <Box item={item} key={item.calories} />;
+        })}
       </>
     );
   }
-}
 
-function mapStateToProps(state) {
-  return {
-    userInput: state.userInput,
-    nutritionData: state.nutritionData,
-  };
-}
+  return (
+    <>
+      <p>Loading</p>
+    </>
+  );
+};
 
-export default connect(mapStateToProps)(Content);
+export default Content;
