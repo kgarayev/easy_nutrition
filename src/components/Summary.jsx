@@ -1,10 +1,13 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
-class Summary extends Component {
+const Summary = () => {
+  const dictionary = useSelector((state) => state.dictionary);
+  const nutritionData = useSelector((state) => state.nutritionData);
+
   // a function that iterates through array of objects and returns an object with all sums for individual entries
-  summAll = (arrayOfObjects) => {
-    let sumObject = { ...this.props.dictionary };
+  const summAll = (arrayOfObjects) => {
+    let sumObject = { ...dictionary };
 
     for (let item of arrayOfObjects) {
       for (let key in item) {
@@ -17,32 +20,23 @@ class Summary extends Component {
     return sumObject;
   };
 
-  render() {
-    const totals = this.summAll(this.props.nutritionData);
-    return (
-      <>
-        <h2>totals</h2>
-        {Object.keys(totals).map((key) => {
-          return (
-            <p key={key}>
-              {totals[key].primary +
-                ": " +
-                Math.round(totals[key].sum) +
-                " " +
-                totals[key].unit}
-            </p>
-          );
-        })}
-      </>
-    );
-  }
-}
+  const totals = summAll(nutritionData);
+  return (
+    <>
+      <h2>totals</h2>
+      {Object.keys(totals).map((key) => {
+        return (
+          <p key={key}>
+            {totals[key].primary +
+              ": " +
+              Math.round(totals[key].sum) +
+              " " +
+              totals[key].unit}
+          </p>
+        );
+      })}
+    </>
+  );
+};
 
-function mapStateToProps(state) {
-  return {
-    nutritionData: state.nutritionData,
-    dictionary: state.dictionary,
-  };
-}
-
-export default connect(mapStateToProps)(Summary);
+export default Summary;

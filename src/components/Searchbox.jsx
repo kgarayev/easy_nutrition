@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { USER_INPUT, NEW_API_DATA } from "../store/types";
-import axios from "axios";
-import { API_KEY } from "../store/config";
-import { backupData } from "../store/backup";
+import { USER_INPUT } from "../store/types";
+import { getData } from "../controllers/data";
 
 const Searchbox = () => {
   const dispatch = useDispatch();
+  const userInput = useSelector((store) => store.userInput);
 
   // function to record and dispatch the user input into a store
   const onSubmit = async (e) => {
@@ -15,34 +14,9 @@ const Searchbox = () => {
     dispatch({ type: USER_INPUT, payload: userInput });
   };
 
-  // function to get data from the api
-  const getData = async () => {
-    // only a backup data
-    dispatch({ type: NEW_API_DATA, payload: backupData });
-
-    // const userInput = useSelector((state) => state.userInput);
-
-    // try {
-    //   const { data } = await axios.get(
-    //     `https://api.api-ninjas.com/v1/nutrition?query=${userInput}`,
-    //     {
-    //       headers: {
-    //         "X-Api-Key": API_KEY,
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
-
-    //   console.log(data);
-    //   dispatch({ type: NEW_API_DATA, payload: data });
-    // } catch (error) {
-    //   console.log(error);
-    // }
-  };
-
   //   trigger the update of the component
   useEffect(() => {
-    getData();
+    getData(userInput);
   });
 
   return (
