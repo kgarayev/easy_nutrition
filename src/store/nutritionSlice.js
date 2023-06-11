@@ -19,6 +19,7 @@ const initialState = {
     fiber_g: { primary: "fiber", unit: "g", sum: 0 },
     sugar_g: { primary: "sugar", unit: "g", sum: 0 },
   },
+  favourites: [],
 };
 
 export const nutritionSlice = createSlice({
@@ -41,6 +42,16 @@ export const nutritionSlice = createSlice({
     setFilter: (state, action) => {
       state.filterOption = action.payload;
     },
+
+    setFavourte: (state, action) => {
+      const indexOf = state.favourites.indexOf(action.payload);
+
+      if (indexOf === -1) {
+        state.favourites.push(action.payload);
+      } else {
+        state.favourites.splice(indexOf, 1);
+      }
+    },
   },
 });
 
@@ -49,6 +60,7 @@ export const {
   saveInput,
   setFilter,
   setSort,
+  setFavourte,
 } = nutritionSlice.actions;
 
 export const selectNutritionData = (state) => state.nutrition.nutritionData;
@@ -56,5 +68,6 @@ export const selectUserInput = (state) => state.nutrition.userInput;
 export const selectDictionary = (state) => state.nutrition.dictionary;
 export const selectSortOption = (state) => state.nutrition.sortOption;
 export const selectFilterOption = (state) => state.nutrition.filterOption;
+export const selectFavourites = (state) => state.nutrition.favourites;
 
 export default nutritionSlice.reducer;

@@ -47,7 +47,7 @@ const Content = () => {
         <Filter />
 
         {list.map((item) => {
-          return <Box item={item} key={item.calories} />;
+          return <Box item={item} key={item.name + item.calories} />;
         })}
       </>
     );
