@@ -43,7 +43,8 @@ export const {
   setSort,
 } = nutritionSlice.actions;
 
-export const selectApiData = (state) => state.nutrition.nutritionData;
+export const selectNutritionData = (state) => state.nutrition.nutritionData;
 export const selectUserInput = (state) => state.nutrition.userInput;
+export const selectDictionary = (state) => state.nutrition.dictionary;
 
 export default nutritionSlice.reducer;

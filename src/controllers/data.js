@@ -7,7 +7,7 @@ import { newApiData } from "../store/nutritionSlice";
 // function to get data from the api
 export const getData = async (input) => {
   // only a backup data
-  // store.dispatch(saveInput(backupData));
+  // store.dispatch(newApiData(backupData));
 
   try {
     const { data } = await axios.get(
