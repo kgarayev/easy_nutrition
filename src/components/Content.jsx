@@ -41,7 +41,13 @@ const Content = () => {
     });
   }
 
-  if (nutritionData && nutritionData.length !== 0) {
+  if (!nutritionData) {
+    return (
+      <>
+        <p>Loading...</p>
+      </>
+    );
+  } else if (nutritionData && nutritionData.length !== 0) {
     return (
       <>
         <Summary />
@@ -58,12 +64,6 @@ const Content = () => {
     return (
       <>
         <p>Please make a valid entry</p>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <p>Loading...</p>
       </>
     );
   }

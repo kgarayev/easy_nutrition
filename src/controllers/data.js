@@ -7,21 +7,21 @@ import { newApiData } from "../store/nutritionSlice";
 // function to get data from the api
 export const getData = async (input) => {
   // only a backup data
-  store.dispatch(newApiData(backupData));
+  // store.dispatch(newApiData(backupData));
 
-  // try {
-  //   const { data } = await axios.get(
-  //     `https://api.api-ninjas.com/v1/nutrition?query=${input}`,
-  //     {
-  //       headers: {
-  //         "X-Api-Key": API_KEY,
-  //         "Content-Type": "application/json",
-  //       },
-  //     }
-  //   );
+  try {
+    const { data } = await axios.get(
+      `https://api.api-ninjas.com/v1/nutrition?query=${input}`,
+      {
+        headers: {
+          "X-Api-Key": API_KEY,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-  //   store.dispatch(newApiData(data));
-  // } catch (error) {
-  //   console.log(error);
-  // }
+    store.dispatch(newApiData(data));
+  } catch (error) {
+    console.log(error);
+  }
 };
