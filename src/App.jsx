@@ -1,31 +1,22 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import { connect } from "react-redux";
-import { NEW_API_DATA } from "./store/types";
-import { API_KEY } from "./store/config";
+import { useSelector } from "react-redux";
 import Searchbox from "./components/Searchbox";
 import Content from "./components/Content";
 
-class App extends Component {
-  render() {
-    if (this.props.userInput) {
-      return (
-        <>
-          <Searchbox />
-          <Content />
-        </>
-      );
-    }
+const App = () => {
+  const userInput = useSelector((state) => state.userInput);
 
-    return <Searchbox />;
+  if (userInput) {
+    return (
+      <>
+        <Searchbox />
+        <Content />
+      </>
+    );
   }
-}
 
-function mapStateToProps(state) {
-  return {
-    userInput: state.userInput,
-  };
-}
+  return <Searchbox />;
+};
 
-export default connect(mapStateToProps)(App);
+export default App;
