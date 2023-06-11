@@ -10,7 +10,7 @@ const Searchbox = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const input = e.target.elements.searchInput.value;
-    getData(input);
+    await getData(input);
     dispatch(saveInput(input));
   };
 

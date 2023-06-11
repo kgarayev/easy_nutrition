@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { backupData } from "./backup.js";
+import { getState, storeState } from "../storage/index.js";
+
+const storedFavourites = getState("favourites");
+const storedNutrition = getState("nutrition");
 
 const initialState = {
   dictionary: {
@@ -19,7 +23,9 @@ const initialState = {
     fiber_g: { primary: "fiber", unit: "g", sum: 0 },
     sugar_g: { primary: "sugar", unit: "g", sum: 0 },
   },
-  favourites: [],
+  favourites: storedFavourites || [],
+  allNutrition: storedNutrition || [],
+  screenMode: 0,
 };
 
 export const nutritionSlice = createSlice({
@@ -29,18 +35,38 @@ export const nutritionSlice = createSlice({
   reducers: {
     newApiData: (state, action) => {
       state.nutritionData = action.payload;
+
+      for (let element of state.nutritionData) {
+        let isDuplicate = false;
+
+        for (let item of state.allNutrition) {
+          if (element.name + element.calories === item.name + item.calories) {
+            isDuplicate = true;
+            break;
+          }
+        }
+
+        if (!isDuplicate) {
+          state.allNutrition.push(element);
+        }
+      }
+
+      storeState("nutrition", state.allNutrition);
     },
 
     saveInput: (state, action) => {
       state.userInput = action.payload;
+      return state;
     },
 
     setSort: (state, action) => {
       state.sortOption = action.payload;
+      return state;
     },
 
     setFilter: (state, action) => {
       state.filterOption = action.payload;
+      return state;
     },
 
     setFavourte: (state, action) => {
@@ -48,9 +74,15 @@ export const nutritionSlice = createSlice({
 
       if (indexOf === -1) {
         state.favourites.push(action.payload);
+        storeState("favourites", state.favourites);
       } else {
         state.favourites.splice(indexOf, 1);
+        storeState("favourites", state.favourites);
       }
+    },
+
+    setScreenMode: (state, action) => {
+      state.screenMode = action.payload;
     },
   },
 });
@@ -61,6 +93,7 @@ export const {
   setFilter,
   setSort,
   setFavourte,
+  setScreenMode,
 } = nutritionSlice.actions;
 
 export const selectNutritionData = (state) => state.nutrition.nutritionData;
@@ -69,5 +102,6 @@ export const selectDictionary = (state) => state.nutrition.dictionary;
 export const selectSortOption = (state) => state.nutrition.sortOption;
 export const selectFilterOption = (state) => state.nutrition.filterOption;
 export const selectFavourites = (state) => state.nutrition.favourites;
+export const selectScreenMode = (state) => state.nutrition.screenMode;
 
 export default nutritionSlice.reducer;

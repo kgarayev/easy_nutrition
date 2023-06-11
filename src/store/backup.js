@@ -42,7 +42,7 @@ export const backupData = [
     sugar_g: 0.0,
   },
   {
-    name: "motato",
+    name: "potato",
     calories: 26.4,
     serving_size_g: 123.0,
     fat_total_g: 0.2,
@@ -56,7 +56,7 @@ export const backupData = [
     sugar_g: 3.2,
   },
   {
-    name: "keggs",
+    name: "milk",
     calories: 174.3,
     serving_size_g: 100.0,
     fat_total_g: 9.4,
@@ -70,7 +70,7 @@ export const backupData = [
     sugar_g: 0.4,
   },
   {
-    name: "beak",
+    name: "bread",
     calories: 3707.4,
     serving_size_g: 1105.0,
     fat_total_g: 205.9,
@@ -84,7 +84,7 @@ export const backupData = [
     sugar_g: 0.0,
   },
   {
-    name: "vase",
+    name: "carrot",
     calories: 90.4,
     serving_size_g: 123.0,
     fat_total_g: 0.2,
@@ -98,7 +98,7 @@ export const backupData = [
     sugar_g: 3.2,
   },
   {
-    name: "cluck",
+    name: "chicken",
     calories: 126.3,
     serving_size_g: 100.0,
     fat_total_g: 9.4,

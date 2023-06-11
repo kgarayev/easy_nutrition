@@ -4,11 +4,13 @@ import Box from "./Box";
 import Summary from "./Summary";
 import Sort from "./Sort";
 import Filter from "./Filter";
+import Favourites from "./Favourites";
 import {
   selectNutritionData,
   selectUserInput,
   selectFilterOption,
   selectSortOption,
+  selectScreenMode,
 } from "../store/nutritionSlice";
 
 const Content = () => {
@@ -16,6 +18,7 @@ const Content = () => {
   const userInput = useSelector(selectUserInput);
   const filterOption = useSelector(selectFilterOption);
   const sortOption = useSelector(selectSortOption);
+  const screenMode = useSelector(selectScreenMode);
 
   // copy nutrition data and filter and/or sort it if necessary
   let list = [...nutritionData];
