@@ -7,18 +7,14 @@ import Filter from "./Filter";
 import Favourites from "./Favourites";
 import {
   selectNutritionData,
-  selectUserInput,
   selectFilterOption,
   selectSortOption,
-  selectScreenMode,
 } from "../store/nutritionSlice";
 
 const Content = () => {
   const nutritionData = useSelector(selectNutritionData);
-  const userInput = useSelector(selectUserInput);
   const filterOption = useSelector(selectFilterOption);
   const sortOption = useSelector(selectSortOption);
-  const screenMode = useSelector(selectScreenMode);
 
   // copy nutrition data and filter and/or sort it if necessary
   let list = [...nutritionData];
@@ -41,13 +37,7 @@ const Content = () => {
     });
   }
 
-  if (!nutritionData) {
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
-  } else if (nutritionData && nutritionData.length !== 0) {
+  if (nutritionData && nutritionData.length !== 0) {
     return (
       <>
         <Summary />

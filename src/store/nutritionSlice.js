@@ -56,17 +56,14 @@ export const nutritionSlice = createSlice({
 
     saveInput: (state, action) => {
       state.userInput = action.payload;
-      return state;
     },
 
     setSort: (state, action) => {
       state.sortOption = action.payload;
-      return state;
     },
 
     setFilter: (state, action) => {
       state.filterOption = action.payload;
-      return state;
     },
 
     setFavourte: (state, action) => {
@@ -84,6 +81,10 @@ export const nutritionSlice = createSlice({
     setScreenMode: (state, action) => {
       state.screenMode = action.payload;
     },
+
+    loading: (state, action) => {
+      state.loading = action.payload;
+    },
   },
 });
 
@@ -94,6 +95,7 @@ export const {
   setSort,
   setFavourte,
   setScreenMode,
+  loading,
 } = nutritionSlice.actions;
 
 export const selectNutritionData = (state) => state.nutrition.nutritionData;
@@ -103,5 +105,6 @@ export const selectSortOption = (state) => state.nutrition.sortOption;
 export const selectFilterOption = (state) => state.nutrition.filterOption;
 export const selectFavourites = (state) => state.nutrition.favourites;
 export const selectScreenMode = (state) => state.nutrition.screenMode;
+export const selectLoading = (state) => state.nutrition.loading;
 
 export default nutritionSlice.reducer;

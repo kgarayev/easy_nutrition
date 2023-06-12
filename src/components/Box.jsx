@@ -36,7 +36,7 @@ const Box = (props) => {
 
       {Object.keys(dictionary).map((key) => {
         return (
-          <div key={Math.floor(Math.random() * 10000)}>
+          <div key={key}>
             {dictionary[key].primary +
               ": " +
               item[key] +
