@@ -26,7 +26,7 @@ const Box = (props) => {
 
   return (
     <>
-      <h3>{item.name}</h3>
+      <h2>{item.name}</h2>
 
       <div onClick={onStarClick}>
         <FontAwesomeIcon icon={faStar} style={{ color }} />

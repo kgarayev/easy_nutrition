@@ -20,7 +20,6 @@ const Favourites = () => {
 
   return (
     <>
-      <p>hi</p>
       {fullFavouriteData.map((item) => {
         return <Box item={item} key={item.name + item.calories} />;
       })}

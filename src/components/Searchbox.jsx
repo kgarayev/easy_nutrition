@@ -23,8 +23,17 @@ const Searchbox = () => {
           dispatch(setScreenMode(0));
         }}
       >
-        <input type="text" name="searchInput" />
-        <button type="submit">find out</button>
+        <div className="inputBox">
+          <input
+            type="text"
+            name="searchInput"
+            className="mainInput"
+            placeholder={"enter food"}
+          />
+          <button type="submit" className="submitButton">
+            find out
+          </button>
+        </div>
       </form>
     </>
   );

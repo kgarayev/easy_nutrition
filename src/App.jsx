@@ -9,6 +9,7 @@ import {
   setScreenMode,
   selectScreenMode,
   selectLoading,
+  saveInput,
 } from "./store/nutritionSlice";
 
 const App = () => {
@@ -28,10 +29,43 @@ const App = () => {
   if (userInput) {
     return (
       <>
-        <div>
+        <div
+          className="heading"
+          onClick={() => {
+            dispatch(saveInput(""));
+          }}
+        >
+          <div className="headingEasy">
+            <h1>Easy</h1>
+          </div>
+          <div className="headingNutrition">
+            <h1>Nutrition</h1>
+          </div>
+        </div>
+
+        <div className="container">
           <Searchbox />
-          <p onClick={mainClick}>Main</p>
-          <p onClick={favouriteClick}>Favourites</p>
+
+          <div className="menu">
+            <div>
+              <h2 onClick={mainClick}>main</h2>
+            </div>
+
+            <div>
+              <h2 onClick={favouriteClick}>favourites</h2>
+            </div>
+
+            <div>
+              <h2
+                onClick={() => {
+                  dispatch(saveInput(""));
+                }}
+              >
+                reset
+              </h2>
+            </div>
+          </div>
+
           {screenMode === 0 && <Content />}
           {loading && <p>Loading...</p>}
           {screenMode === 1 && <Favourites />}
@@ -42,10 +76,38 @@ const App = () => {
 
   return (
     <>
-      <div>
+      <div className="heading">
+        <div className="headingEasy">
+          <h1>Easy</h1>
+        </div>
+        <div className="headingNutrition">
+          <h1>Nutrition</h1>
+        </div>
+      </div>
+
+      <div className="container">
         <Searchbox />
-        <p onClick={mainClick}>Main</p>
-        <p onClick={favouriteClick}>Favourites</p>
+
+        <div className="menu">
+          <div>
+            <h2 onClick={mainClick}>main</h2>
+          </div>
+
+          <div>
+            <h2 onClick={favouriteClick}>favourites</h2>
+          </div>
+
+          <div>
+            <h2
+              onClick={() => {
+                dispatch(saveInput(""));
+              }}
+            >
+              reset
+            </h2>
+          </div>
+        </div>
+
         {loading && <p>Loading...</p>}
         {screenMode === 1 && <Favourites />}
       </div>
