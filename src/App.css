@@ -111,6 +111,7 @@ button {
   width: 40%;
   border: 0.1rem solid rgb(230, 230, 230);
   background-color: white;
+  color: black;
 }
 
 button:hover {
@@ -198,6 +199,7 @@ select {
   border-radius: 5rem;
   background-color: white;
   width: 20rem;
+  color: black;
 }
 
 select + select > select {
@@ -208,6 +210,7 @@ select + select > select {
 select option {
   border-radius: 2rem;
   text-align: center;
+  color: black;
 }
 
 .filter {
