@@ -12,8 +12,9 @@ const Sort = () => {
         onInput={(e) => {
           dispatch(setSort(e.target.value));
         }}
+        defaultValue={"sort"}
       >
-        <option value=""></option>
+        <option value="">default</option>
         <option value="asc">ascending</option>
         <option value="desc">descending</option>
       </select>

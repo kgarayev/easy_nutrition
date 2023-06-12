@@ -9,6 +9,8 @@ const Filter = () => {
   return (
     <>
       <input
+        placeholder="filter"
+        className="filter"
         type="text"
         name="filterInput"
         onInput={(e) => {

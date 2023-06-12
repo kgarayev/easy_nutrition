@@ -37,17 +37,18 @@ const Content = () => {
     });
   }
 
+  // conditional rendering
   if (nutritionData && nutritionData.length !== 0) {
     return (
       <>
-        <Summary />
-
+        <Summary key="summary" />
         <Sort />
         <Filter />
-
-        {list.map((item) => {
-          return <Box item={item} key={item.name + item.calories} />;
-        })}
+        <div className="content">
+          {list.map((item) => {
+            return <Box item={item} key={item.name + item.calories} />;
+          })}
+        </div>
       </>
     );
   } else if (nutritionData && nutritionData.length === 0) {

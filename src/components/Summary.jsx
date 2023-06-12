@@ -33,18 +33,19 @@ const Summary = () => {
 
   return (
     <>
-      <h2>totals</h2>
-      {Object.keys(totals).map((key) => {
-        return (
-          <p key={key}>
-            {totals[key].primary +
-              ": " +
-              Math.round(totals[key].sum) +
-              " " +
-              totals[key].unit}
-          </p>
-        );
-      })}
+      <div className="box summary" key={totals.calories}>
+        <h2>totals</h2>
+        {Object.keys(totals).map((key) => {
+          return (
+            <>
+              <div key={key} className="boxElement">
+                <p>{totals[key].primary}</p>
+                <p>{Math.round(totals[key].sum) + " " + totals[key].unit}</p>
+              </div>
+            </>
+          );
+        })}
+      </div>
     </>
   );
 };

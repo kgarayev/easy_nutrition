@@ -18,14 +18,17 @@ const App = () => {
   const loading = useSelector(selectLoading);
   const dispatch = useDispatch();
 
+  // when a star is clicked change screen mode
   const favouriteClick = () => {
     dispatch(setScreenMode(1));
   };
 
+  // when main menu item is clicked change screen mode
   const mainClick = () => {
     dispatch(setScreenMode(0));
   };
 
+  // condiitonal rendering
   if (userInput) {
     return (
       <>
@@ -59,6 +62,7 @@ const App = () => {
               <h2
                 onClick={() => {
                   dispatch(saveInput(""));
+                  dispatch(setScreenMode(0));
                 }}
               >
                 reset

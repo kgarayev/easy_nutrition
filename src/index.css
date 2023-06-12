@@ -18,25 +18,25 @@
   -webkit-text-size-adjust: 100%;
 }
 
-/* :root {
+:root {
   background: linear-gradient(
     90deg,
-    #b4cbfa,
-    #ffbae8,
-    #a9c2ff,
+    #99bbfd,
+    #ffe2a3,
+    #f6b5ff,
     #f79bfd,
-    #baf7ba,
+    #95f395,
     #bdf7ce,
-    #a9fcb7,
-    #ffadd8,
+    #8cfa9e,
+    #ffa0d1,
     #afb7ff,
-    #c8fcfd,
-    #bfaff7,
-    #f8b9e9
+    #a5f7f8,
+    #a891fc,
+    #f9a7ff
   );
   background-size: 3000% 3000%;
 
-  animation: AnimationName 10s ease infinite;
+  animation: AnimationName 20s ease infinite;
 }
 
 @keyframes AnimationName {
@@ -49,7 +49,7 @@
   100% {
     background-position: 0% 49%;
   }
-} */
+}
 
 a {
   font-weight: 500;
@@ -68,6 +68,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5rem;
 }
 
 h1 {
@@ -84,5 +85,17 @@ h1 {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  :root {
+    font-size: 10.5px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  :root {
+    font-size: 11px;
   }
 }
