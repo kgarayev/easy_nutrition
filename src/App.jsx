@@ -28,23 +28,27 @@ const App = () => {
   if (userInput) {
     return (
       <>
-        <Searchbox />
-        <p onClick={mainClick}>Main</p>
-        <p onClick={favouriteClick}>Favourites</p>
-        {screenMode === 0 && <Content />}
-        {loading && <p>Loading...</p>}
-        {screenMode === 1 && <Favourites />}
+        <div>
+          <Searchbox />
+          <p onClick={mainClick}>Main</p>
+          <p onClick={favouriteClick}>Favourites</p>
+          {screenMode === 0 && <Content />}
+          {loading && <p>Loading...</p>}
+          {screenMode === 1 && <Favourites />}
+        </div>
       </>
     );
   }
 
   return (
     <>
-      <Searchbox />
-      <p onClick={mainClick}>Main</p>
-      <p onClick={favouriteClick}>Favourites</p>
-      {loading && <p>Loading...</p>}
-      {screenMode === 1 && <Favourites />}
+      <div>
+        <Searchbox />
+        <p onClick={mainClick}>Main</p>
+        <p onClick={favouriteClick}>Favourites</p>
+        {loading && <p>Loading...</p>}
+        {screenMode === 1 && <Favourites />}
+      </div>
     </>
   );
 };

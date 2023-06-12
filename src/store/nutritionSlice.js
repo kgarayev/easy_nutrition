@@ -106,5 +106,6 @@ export const selectFilterOption = (state) => state.nutrition.filterOption;
 export const selectFavourites = (state) => state.nutrition.favourites;
 export const selectScreenMode = (state) => state.nutrition.screenMode;
 export const selectLoading = (state) => state.nutrition.loading;
+export const selectAllNutrition = (state) => state.nutrition.allNutrition;
 
 export default nutritionSlice.reducer;

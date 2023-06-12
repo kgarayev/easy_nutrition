@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Creepster", cursive;
+  font-family: "Nunito", sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 10px;
 
   color-scheme: light dark;
@@ -14,6 +17,36 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+/* 
+:root {
+  background: linear-gradient(
+    90deg,
+    #4682fa,
+    #dd2fa4,
+    #4479f7,
+    #b511c1,
+    #b93479,
+    #5463f0,
+    #31fafe,
+    #6b44f8,
+    #f250cc
+  );
+  background-size: 3000% 3000%;
+
+  animation: AnimationName 15s ease infinite;
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 49%;
+  }
+  50% {
+    background-position: 100% 52%;
+  }
+  100% {
+    background-position: 0% 49%;
+  }
+} */
 
 a {
   font-weight: 500;
