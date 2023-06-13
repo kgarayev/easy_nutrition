@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../controllers/data";
 import { saveInput, setScreenMode } from "../store/nutritionSlice";
@@ -28,12 +28,13 @@ const Searchbox = () => {
             type="text"
             name="searchInput"
             className="mainInput"
-            placeholder={"enter food"}
+            placeholder={`e.g. 2 eggs, fries, a chicken breast`}
           />
           <button type="submit" className="submitButton">
-            find out
+            check
           </button>
         </div>
+        {/* <p>hi</p> */}
       </form>
     </>
   );

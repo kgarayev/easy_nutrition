@@ -41,13 +41,18 @@ const Content = () => {
   if (nutritionData && nutritionData.length !== 0) {
     return (
       <>
-        <Summary key="summary" />
-        <Sort />
-        <Filter />
         <div className="content">
-          {list.map((item) => {
-            return <Box item={item} key={item.name + item.calories} />;
-          })}
+          <Summary key="summary" />
+
+          <Sort />
+
+          {/* <Filter /> */}
+
+          <div className="contentDetails">
+            {list.map((item) => {
+              return <Box item={item} key={item.name + item.calories} />;
+            })}
+          </div>
         </div>
       </>
     );

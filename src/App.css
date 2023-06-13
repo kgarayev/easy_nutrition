@@ -68,10 +68,12 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .inputBox {
   height: 4rem;
+
   padding: 0.5rem;
   display: flex;
   flex-grow: 1;
@@ -80,12 +82,18 @@ form {
   border-radius: 5rem;
   gap: 1rem;
   background-color: white;
+  resize: vertical;
 }
 
 .mainInput {
-  width: 60%;
+  width: 70%;
   border-radius: 5rem;
   text-align: center;
+  font-size: 1rem;
+  white-space: normal;
+  resize: vertical;
+  font-style: italic;
+
   /* border: 0.1rem solid rgb(230, 230, 230); */
   /* color: rgb(179, 179, 179); */
 }
@@ -108,7 +116,7 @@ button {
   border: 1px solid transparent;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 40%;
+  width: 30%;
   border: 0.1rem solid rgb(230, 230, 230);
   background-color: white;
   color: black;
@@ -176,6 +184,13 @@ button:hover {
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentDetails {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -259,27 +274,11 @@ select option {
     width: 50rem;
   }
 
-  :root {
-    font-size: 13px;
-  }
-
   .heading h1 {
     font-size: 3.5rem;
   }
 
   .heading {
     width: 21rem;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  :root {
-    font-size: 14px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  :root {
-    font-size: 15px;
   }
 }
