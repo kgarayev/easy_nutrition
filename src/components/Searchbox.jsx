@@ -28,7 +28,7 @@ const Searchbox = () => {
             type="text"
             name="searchInput"
             className="mainInput"
-            placeholder={`e.g. 2 eggs, fries, a chicken breast`}
+            placeholder={`type food e.g. 2 eggs, fries, chicken breast`}
           />
           <button type="submit" className="submitButton">
             check

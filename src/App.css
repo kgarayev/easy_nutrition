@@ -77,7 +77,7 @@ form {
   padding: 0.5rem;
   display: flex;
   flex-grow: 1;
-  width: 25rem;
+  width: 30rem;
   border: 0.1rem solid rgb(230, 230, 230);
   border-radius: 5rem;
   gap: 1rem;
@@ -86,7 +86,7 @@ form {
 }
 
 .mainInput {
-  width: 70%;
+  width: 80%;
   border-radius: 5rem;
   text-align: center;
   font-size: 1rem;
@@ -116,7 +116,7 @@ button {
   border: 1px solid transparent;
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 30%;
+  width: 20%;
   border: 0.1rem solid rgb(230, 230, 230);
   background-color: white;
   color: black;
@@ -188,6 +188,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
 .contentDetails {
@@ -208,13 +209,14 @@ button:hover {
 }
 
 select {
-  height: 5rem;
+  height: 4rem;
   padding: 0.5rem;
   border: 0.1rem solid rgb(230, 230, 230);
   border-radius: 5rem;
   background-color: white;
   width: 20rem;
   color: black;
+  text-align: center;
 }
 
 select + select > select {
@@ -243,7 +245,7 @@ select option {
 
 @media screen and (min-width: 450px) {
   .inputBox {
-    width: 35rem;
+    width: 40rem;
   }
 
   .menu {
@@ -261,7 +263,7 @@ select option {
 
 @media screen and (min-width: 600px) {
   .inputBox {
-    width: 40rem;
+    width: 45rem;
   }
 
   :root {
