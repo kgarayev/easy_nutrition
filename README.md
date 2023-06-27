@@ -1,5 +1,14 @@
 # :broccoli: Easy Nutrition App :apple:
 
+## :computer: Tech Used
+
+- Programming Languages: JavaScript
+- Frameworks: React.js
+- 3rd Party Libraries: Axios
+- Web Development: HTML, CSS
+- Version Control: Git
+- API: Food API
+
 ## :book: Overview
 
 Easy Nutrition is a powerful web application built using Functional React and Redux Toolkit. It allows users to input various food items and retrieves detailed nutritional data for each item, along with the overall totals. The app also offers sorting and filtering functionalities to enhance the user experience. Additionally, users can like and save their favourite items using local storage. The app features menu items that enable users to navigate between different screen views.
