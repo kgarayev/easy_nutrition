@@ -28,6 +28,8 @@ const App = () => {
     dispatch(setScreenMode(0));
   };
 
+  console.log("check");
+
   // condiitonal rendering
   if (userInput) {
     return (
